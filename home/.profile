@@ -8,6 +8,7 @@ export TNS_ADMIN=$ORACLE_HOME
 export LD_LIBRARY_PATH=$ORACLE_HOME
 export DYLD_LIBRARY_PATH=$ORACLE_HOME
 export NLS_LANG=AMERICAN_AMERICA.UTF8
+export PATH=$ORACLE_HOME:$PATH
 
 # SVN Editor
 export SVN_EDITOR="mate -w"
@@ -20,6 +21,9 @@ export PATH=/opt/ruby-enterprise-1.8.7-2010.01/bin:$PATH
 
 # MongoDB
 export PATH=/usr/local/mongodb/bin:$PATH
+
+# PostgreSQL
+export PATH=/opt/local/lib/postgresql84/bin:$PATH
 
 # Aliases
 alias arestart="sudo apachectl restart"

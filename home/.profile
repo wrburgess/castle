@@ -22,7 +22,7 @@ alias gitci='git svn dcommit'
 parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
-PS1="\w\$(parse_git_branch)\$ "
+PS1='\h:\W$(__git_ps1 "(%s)") \u\$ '
 
 # RVM
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm

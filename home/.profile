@@ -1,3 +1,5 @@
+source /usr/local/etc/bash_completion.d/git-completion.bash
+
 # Oracle
 export ORACLE_HOME=/Library/Oracle/instantclient
 export TNS_ADMIN=$ORACLE_HOME

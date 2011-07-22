@@ -19,7 +19,10 @@ alias gitup='git svn rebase'
 alias gitci='git svn dcommit'
 
 # Git
-PS1="\w\$(__git_ps1)\$ "
+parse_git_branch() {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+PS1="\w\$(parse_git_branch)\$ "
 
 # RVM
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm

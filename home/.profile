@@ -18,8 +18,8 @@ alias gcw='git checkout working'
 alias gitup='git svn rebase'
 alias gitci='git svn dcommit'
 
-# Selenium
-export PECKS=1
+# Git
+PS1="\w\$(__git_ps1)\$ "
 
 # RVM
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm

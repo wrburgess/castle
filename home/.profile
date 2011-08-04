@@ -16,4 +16,4 @@ alias gitci='git svn dcommit'
 # PS1
 [[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
 if [ -f `brew --prefix`/etc/bash_completion.d/git-completion.bash ]; then source `brew --prefix`/etc/bash_completion.d/git-completion.bash; fi
-export PS1="\[\033[01;34m\]\$(~/.rvm/bin/rvm-prompt) \[\033[01;32m\]\w\[\033[00;33m\]\$(__git_ps1 \" (%s)\") \[\033[01;36m\]\$\[\033[00m\] "
+export PS1="\[\033[01;34m\]\$(~/.rvm/bin/rvm-prompt) \[\033[00m\]\w\[\033[00;33m\]\$(__git_ps1 \" (%s)\") \[\033[00m\]\$ "

@@ -1,13 +1,3 @@
-source /usr/local/etc/bash_completion.d/git-completion.bash
-
-# Oracle
-export ORACLE_HOME=/Library/Oracle/instantclient
-export TNS_ADMIN=$ORACLE_HOME
-export LD_LIBRARY_PATH=$ORACLE_HOME
-export DYLD_LIBRARY_PATH=$ORACLE_HOME
-export NLS_LANG=AMERICAN_AMERICA.UTF8
-export PATH=$ORACLE_HOME:$PATH
-
 # Editors
 export SVN_EDITOR="mate -w"
 export GIT_EDITOR="mate -w"
@@ -20,11 +10,10 @@ alias gcw='git checkout working'
 alias gitup='git svn rebase'
 alias gitci='git svn dcommit'
 
-# Git
-parse_git_branch() {
-  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
-}
-PS1='\h:\W$(__git_ps1 "(%s)") \u\$ '
-
 # RVM
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
+
+# PS1
+[[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
+if [ -f `brew --prefix`/etc/bash_completion.d/git-completion.bash ]; then source `brew --prefix`/etc/bash_completion.d/git-completion.bash; fi
+export PS1="\[\033[01;34m\]\$(~/.rvm/bin/rvm-prompt) \[\033[00m\]\w\[\033[00;33m\]\$(__git_ps1 \" (%s)\") \[\033[00m\]\$ "

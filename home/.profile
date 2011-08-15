@@ -13,3 +13,7 @@ alias gitci='git svn dcommit'
 # Rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+
+# PS1
+if [ -f `brew --prefix`/etc/bash_completion.d/git-completion.bash ]; then source `brew --prefix`/etc/bash_completion.d/git-completion.bash; fi
+PS1='[\@] \u@\h:\w$(__git_ps1 " (%s)") \$ '

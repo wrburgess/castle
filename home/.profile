@@ -12,3 +12,4 @@ alias gitci='git svn dcommit'
 
 # Rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"

@@ -10,6 +10,7 @@ alias gcw='git checkout working'
 alias gitup='git svn rebase'
 alias gitci='git svn dcommit'
 alias dev='cd ~/Development'
+alias obaz='dev && cd obaz'
 
 # Rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"

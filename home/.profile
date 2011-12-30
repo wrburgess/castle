@@ -1,4 +1,5 @@
 # Editors
+export EDITOR="mate -w"
 export SVN_EDITOR="mate -w"
 export GIT_EDITOR="mate -w"
 export BUNDLER_EDITOR="mate -w"

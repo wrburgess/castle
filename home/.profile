@@ -5,12 +5,19 @@ export GIT_EDITOR="mate -w"
 export BUNDLER_EDITOR="mate -w"
 
 # Aliases
-alias grep='GREP_COLOR="1;37;41" LANG=C grep --color=auto'
+alias grep='grep --color=auto'
 alias dev='cd ~/Development'
 alias obaz='dev && cd obaz'
+alias soc='dev && cd socialeer'
 alias be='bundle exec'
+alias rst='touch tmp/restart.txt && echo "Restarted."'
+alias tlog='tail -f log/development.log'
+alias cuke='be rake cucumber'
+alias rspc='be rake spec'
+alias memz='top -o vsize'
+alias cpu='top -o cpu'
 
-# Rbenv
+# rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 

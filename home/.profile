@@ -1,8 +1,8 @@
 # Editors
-export EDITOR="mate -w"
-export SVN_EDITOR="mate -w"
-export GIT_EDITOR="mate -w"
-export BUNDLER_EDITOR="mate -w"
+export EDITOR='mate -w'
+export SVN_EDITOR='mate -w'
+export GIT_EDITOR='mate -w'
+export BUNDLER_EDITOR='mate -w'
 
 # Aliases
 alias grep='grep --color=auto'
@@ -23,10 +23,15 @@ eval "$(rbenv init -)"
 
 # Bash Completion
 if [ -f `brew --prefix`/etc/bash_completion ]; then
-  . `brew --prefix`/etc/bash_completion
+  source `brew --prefix`/etc/bash_completion
 fi
 
-if [ -f `brew --prefix`/etc/bash_completion.d/git-completion.bash ]; then source `brew --prefix`/etc/bash_completion.d/git-completion.bash; fi
+export GIT_PS1_SHOWDIRTYSTATE=true
+if [ -f `brew --prefix`/etc/bash_completion.d/git-completion.bash ]; then
+  source `brew --prefix`/etc/bash_completion.d/git-completion.bash
+fi
+
+# PS1
 PS1='[\@] \u@\h:\w$(__git_ps1 " \e[1;37m(%s)\e[0;0m") \$ '
 
 # Terminal
@@ -34,5 +39,5 @@ export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
 # Node.js
-export NODE_PATH="/usr/local/lib/node"
+export NODE_PATH='/usr/local/lib/node'
 export PATH="/usr/local/share/npm/bin:$PATH"

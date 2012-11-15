@@ -30,7 +30,7 @@ if [ -f `brew --prefix`/etc/bash_completion.d/git-completion.bash ]; then
 fi
 
 # PS1
-PS1='[\@] \u@\h:\w$(__git_ps1 " \e[1;37m(%s)\e[0;0m") \$ '
+PS1='\e[1;37m[\@]\e[m \u@\h:\w$(__git_ps1 " \e[1;37m(%s)\e[m") \$ '
 
 # Terminal
 export CLICOLOR=1

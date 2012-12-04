@@ -40,7 +40,7 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 export NODE_PATH='/usr/local/lib/node'
 export PATH="/usr/local/share/npm/bin:$PATH"
 
-# Ruby tuning
+# Ruby Tuning
 export RUBY_HEAP_MIN_SLOTS=1000000
 export RUBY_HEAP_SLOTS_INCREMENT=1000000
 export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1

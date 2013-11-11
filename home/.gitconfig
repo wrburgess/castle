@@ -1,13 +1,16 @@
 [user]
-  name = Tony Coconate
-  email = me@tonycoconate.com
+	name = Chris Sprehe
+	email = chris.sprehe@gmail.com
+	username = spra85
 [github]
-  user = tonycoco
+  user = spra85
 [apply]
   whitespace = nowarn
 [alias]
   co = checkout
   cob = checkout -b
+  create-branch = !sh -c 'git push origin HEAD:refs/heads/$1 && git fetch origin && git branch --track $1 origin/$1 && cd . && git checkout $1' -
+  delete-branch = !sh -c 'git push origin :refs/heads/$1 && git remote prune origin && git branch -D $1' -
   st = status
   br = branch
   ci = commit -a -m
@@ -16,14 +19,14 @@
   pdm = push devmynd master
   pl = pull --rebase
   di = diff --color-words
-  weekreport = shortlog --since=1.weeks --author=tonycoco
+  weekreport = shortlog --since=1.weeks --author=spra85
   gl = log --graph --abbrev-commit --pretty=oneline --decorate
   this = !git init && git add . && git commit -m "initial commit"
   amend = !git log -n 1 --pretty=tformat:%s%n%n%b | git commit -F - --amend
 [color]
   ui = true
 [merge]
-  tool = opendiff
+  tool = kdiff3
 [core]
   excludesfile = ~/.gitignore
   editor = subl -n -w

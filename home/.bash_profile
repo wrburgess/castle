@@ -19,6 +19,7 @@ alias fmld="be foreman start -f Procfile.development"
 alias rb="dev && cd ruby"
 alias js="dev && cd javascript"
 alias esplug="open /Users/csprehe/Sites/elasticsearch-head/index.html"
+alias castle="cd /Users/csprehe/Sites/castle"
 
 # Git Aliases
 alias gs='git status'
@@ -72,6 +73,9 @@ fi
 if [ -f `brew --prefix`/etc/bash_completion.d/git-prompt.sh ]; then
   source `brew --prefix`/etc/bash_completion.d/git-prompt.sh
 fi
+
+# Sublime snippets
+source ~/snippets.sh
 
 [ -z "$PS1" ] || PS1="${GREEN}\h${LGRAY}:${LBLUE}\W${RED}\$(__git_ps1 '(%s)') ${GREEN}\u${NORM}\$ "
 

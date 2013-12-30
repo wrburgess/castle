@@ -15,9 +15,10 @@ alias rspc="be rake spec"
 alias memz="top -o vsize"
 alias cpu="top -o cpu"
 alias fml="be foreman start -f Procfile.local"
-alias dev="cd ~/Development"
+alias fmld="be foreman start -f Procfile.development"
 alias rb="dev && cd ruby"
 alias js="dev && cd javascript"
+alias esplug="open /Users/csprehe/Sites/elasticsearch-head/index.html"
 
 # Git Aliases
 alias gs='git status'
@@ -37,6 +38,9 @@ alias rs='be rails s'
 alias pgn_data='cd /Users/csprehe/Dropbox/DevMyndTeam/Clients/640Labs/SamplePGNData'
 alias tb='cd /Users/csprehe/Sites/devmynd/tractor_beam'
 alias otb='cd /Users/csprehe/Sites/devmynd/ontheblock'
+alias ese='cd /Users/csprehe/Sites/elasticsearch-example'
+alias tabs='cd /Users/csprehe/Sites/devmynd/tabs'
+alias batty='cd /Users/csprehe/Sites/devmynd/batty'
 
 # Aliases for services
 alias redis_start="redis-server /usr/local/etc/redis.conf"
@@ -83,11 +87,20 @@ export HISTCONTROL=ignoredups
 
 # Ruby Tuning
 export RUBY_GC_MALLOC_LIMIT=60000000
-export RUBY_FREE_MIN=200000
-export RUBY_GC_MALLOC_LIMIT=1000000000
-export RUBY_FREE_MIN=500000
-export RUBY_HEAP_MIN_SLOTS=40000
+
+# Ruby 2.1.0
+export RUBY_GC_HEAP_FREE_SLOTS=200000
+export RUBY_GC_HEAP_INIT_SLOTS=40000
+
+# Ruby < 2.1.0
+#export RUBY_HEAP_MIN_SLOTS=40000
+#export RUBY_FREE_MIN=200000
+
 export CFLAGS="-march=core2 -O3 -pipe -fomit-frame-pointer"
+
+# Java HOME
+export JAVA_HOME="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home"
+export PATH=$JAVA_HOME/bin:$PATH
 
 # Added by the Heroku Toolbelt
 #export PATH="/usr/local/heroku/bin:$PATH"

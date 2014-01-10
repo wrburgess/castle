@@ -32,6 +32,7 @@ alias gdc='git diff --cached'
 alias gp='git push'
 alias gr='git pull --rebase'
 alias gv='git remote -v'
+alias gla='git gla'
 
 # Rails aliases
 alias rs='be rails s'
@@ -76,6 +77,9 @@ fi
 
 # Sublime snippets
 source ~/snippets.sh
+
+# Bash script
+source ~/git_log.sh
 
 [ -z "$PS1" ] || PS1="${GREEN}\h${LGRAY}:${LBLUE}\W${RED}\$(__git_ps1 '(%s)') ${GREEN}\u${NORM}\$ "
 

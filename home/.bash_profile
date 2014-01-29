@@ -20,6 +20,7 @@ alias rb="dev && cd ruby"
 alias js="dev && cd javascript"
 alias esplug="open /Users/csprehe/Sites/elasticsearch-head/index.html"
 alias castle="cd /Users/csprehe/Sites/castle"
+alias soit="source ~/.bash_profile"
 
 # Git Aliases
 alias gs='git status'
@@ -34,6 +35,17 @@ alias gr='git pull --rebase'
 alias gv='git remote -v'
 alias gla='git gla'
 
+# Directory navigation
+alias ~="cd ~"
+alias home="cd ~"
+alias ..="cd ../"
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias lst="ls -alh"
+alias dt='cd ~/Desktop'
+alias dl="cd ~/Downloads"
+alias db='cd ~/Dropbox'
+
 # Rails aliases
 alias rs='be rails s'
 
@@ -43,6 +55,9 @@ alias otb='cd /Users/csprehe/Sites/devmynd/ontheblock'
 alias ese='cd /Users/csprehe/Sites/elasticsearch-example'
 alias tabs='cd /Users/csprehe/Sites/devmynd/tabs'
 alias batty='cd /Users/csprehe/Sites/devmynd/batty'
+alias gcw='cd /Users/csprehe/Sites/devmynd/grandcentral_web'
+alias gca='cd /Users/csprehe/Sites/devmynd/grandcentral_api'
+alias me='cd /Users/csprehe/Sites/csprehe'
 
 # Aliases for services
 alias redis_start="redis-server /usr/local/etc/redis.conf"
@@ -88,11 +103,6 @@ export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 export HISTCONTROL=ignoredups
 
-# Node.js
-# Should probably install node first!
-#export NODE_PATH="/usr/local/lib/node"
-#export PATH="/usr/local/share/npm/bin:$PATH"
-
 # Ruby Tuning
 export RUBY_GC_MALLOC_LIMIT=60000000
 
@@ -100,17 +110,10 @@ export RUBY_GC_MALLOC_LIMIT=60000000
 export RUBY_GC_HEAP_FREE_SLOTS=200000
 export RUBY_GC_HEAP_INIT_SLOTS=40000
 
-# Ruby < 2.1.0
-#export RUBY_HEAP_MIN_SLOTS=40000
-#export RUBY_FREE_MIN=200000
-
 export CFLAGS="-march=core2 -O3 -pipe -fomit-frame-pointer"
 
 # Java HOME
 export JAVA_HOME="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home"
 export PATH=$JAVA_HOME/bin:$PATH
-
-# Added by the Heroku Toolbelt
-#export PATH="/usr/local/heroku/bin:$PATH"
 
 export PATH=/usr/local/bin:$PATH

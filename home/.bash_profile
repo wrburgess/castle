@@ -48,6 +48,8 @@ alias db='cd ~/Dropbox'
 
 # Rails aliases
 alias rs='be rails s'
+alias rc="rails console"
+alias seed="rake db:seed"
 
 alias pgn_data='cd /Users/csprehe/Dropbox/DevMyndTeam/Clients/640Labs/SamplePGNData'
 alias tb='cd /Users/csprehe/Sites/devmynd/tractor_beam'

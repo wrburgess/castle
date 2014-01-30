@@ -51,6 +51,7 @@ alias rs='be rails s'
 alias rc="rails console"
 alias seed="rake db:seed"
 
+# Local directories
 alias pgn_data='cd /Users/csprehe/Dropbox/DevMyndTeam/Clients/640Labs/SamplePGNData'
 alias tb='cd /Users/csprehe/Sites/devmynd/tractor_beam'
 alias otb='cd /Users/csprehe/Sites/devmynd/ontheblock'
@@ -67,6 +68,7 @@ alias pg_start="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/ser
 alias pg_stop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
 alias rem="redis-cli MONITOR"
 alias mongo="mongod"
+alias rbsrv="ruby -run -e httpd . -p 12345"
 
 # Rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"

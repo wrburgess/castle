@@ -1,9 +1,11 @@
 <snippet>
   <content><![CDATA[
-{{#link-to "$1"}} $0 {{/link-to}}
+{{#each $1 in $2}}
+  $0
+{{/each}}
 ]]></content>
   <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
-  <tabTrigger>lin</tabTrigger>
+  <tabTrigger>ea</tabTrigger>
   <!-- Optional: Set a scope to limit where the snippet will trigger -->
   <scope>text.html.handlebars,text.html.hbs</scope>
 </snippet>

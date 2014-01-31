@@ -1,16 +1,41 @@
 # Editors
-export EDITOR="subl -n"
-export BUNDLER_EDITOR="subl -n"
+# export EDITOR="subl -n"
+# export BUNDLER_EDITOR="subl -n"
 
-# Aliases
+# dirs
+alias root='cd ~/'
+alias desktop='cd ~/Desktop'
+alias downloads="cd ~/Downloads"
+alias docs="cd ~/Documents"
+alias dropbox='cd ~/Dropbox'
+alias sandbox='cd ~/dev/sandbox/'
+alias wrburgess='cd ~/dev/wrburgess/wrburgess.github.com'
+
+# projects
+alias devd='cd /Users/wrburgess/dev/'
+alias devm='cd /Users/wrburgess/dev/dm'
+alias offbooks='cd ~/dev/jbrb/offbook-server'
+alias offbookc='cd ~/dev/jbrb/offbook-client'
+alias wpa='cd ~/dev/dm/wpa_film_library'
+alias hb='cd ~/dev/dm/hubot'
+alias bstack='cd ~/Documents/BrowserStack'
+alias bstackrun='java -jar BrowserStackTunnel.jar vdqEkZwe34et8tmpH17o localhost,3000,0'
+alias gcapi='cd ~/dev/dm/grandcentral_api'
+alias gcmob='cd ~/dev/dm/grandcentral_mobile'
+alias gcweb='cd ~/dev/dm/grandcentral_web'
+alias batty='cd ~/dev/dm/batty'
+alias ehack='cd ~/dev/sandbox/ember-hack'
+alias tick='cd ~/dev/jbrb/ticker-server'
+
+# aliases
 alias q="exit"
-alias tree="tree --dirsfirst -lFC"
-alias grep="grep --color=auto"
-alias s="cd ~/Sites"
+# alias tree="tree --dirsfirst -lFC"
+# alias grep="grep --color=auto"
+# alias s="cd ~/Sites"
 alias be="bundle exec"
 alias rst="touch tmp/restart.txt && echo "Restarted.""
 alias tlog="tail -f log/development.log"
-alias cuke="be rake cucumber"
+# alias cuke="be rake cucumber"
 alias rspc="be rake spec"
 alias memz="top -o vsize"
 alias cpu="top -o cpu"
@@ -22,20 +47,25 @@ alias esplug="open /Users/csprehe/Sites/elasticsearch-head/index.html"
 alias castle="cd /Users/csprehe/Sites/castle"
 alias soit="source ~/.bash_profile"
 
-# Git Aliases
-alias gs='git status'
-alias st='git status'
-alias ga='git add --all'
-alias gc='git commit'
-alias gl='git gl'
-alias gd='git diff'
-alias gdc='git diff --cached'
-alias gp='git push'
-alias gr='git pull --rebase'
-alias gv='git remote -v'
-alias gla='git gla'
+# git
+alias gstat='git status'
+alias gstash='git stash'
+alias gpo="git push origin"
+alias gpom="git push origin master"
+alias gpbm="git push backup master"
+alias gco="git checkout"
+alias gcob="git checkout -b"
+alias gphm="git push heroku master"
+alias gcm="git commit -m"
+alias gad="git add . -A"
+alias op="git pull --rebase origin master"
+alias glog="git log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short"
+alias gd="git diff"
+alias gdc="git diff --cached"
+alias gs="git status"
+alias gp="git push origin HEAD"
 
-# Directory navigation
+# nav
 alias ~="cd ~"
 alias home="cd ~"
 alias ..="cd ../"
@@ -62,37 +92,17 @@ alias gcw='cd /Users/csprehe/Sites/devmynd/grandcentral_web'
 alias gca='cd /Users/csprehe/Sites/devmynd/grandcentral_api'
 alias me='cd /Users/csprehe/Sites/csprehe'
 
-# Aliases for services
+# misc
 alias redis_start="redis-server /usr/local/etc/redis.conf"
 alias pg_start="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
 alias pg_stop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
 alias rem="redis-cli MONITOR"
 alias mongo="mongod"
-alias rbsrv="ruby -run -e httpd . -p 12345"
-
-# Rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-
-# Bash Completion
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-  source `brew --prefix`/etc/bash_completion
-fi
-
-# Bash Prompt
-if [ -f ~/.bash_prompt ]; then
-  source ~/.bash_prompt
-fi
-
-# Git Completion
-if [ -f `brew --prefix`/etc/bash_completion.d/git-completion.bash ]; then
-  source `brew --prefix`/etc/bash_completion.d/git-completion.bash
-fi
-
-# Git Prompt
-if [ -f `brew --prefix`/etc/bash_completion.d/git-prompt.sh ]; then
-  source `brew --prefix`/etc/bash_completion.d/git-prompt.sh
-fi
+alias reindex="bundle exec rake sunspot:solr:reindex" #for solr/sunspot
+alias elastic="elasticsearch -f -D es.config=/usr/local/opt/elasticsearch/config/elasticsearch.yml" #for elasticsearch
+alias python="python3"
+alias srv="ruby -run -e httpd . -p 12345"
+alias lime='open -a "Sublime Text 2"'
 
 # Sublime snippets
 source ~/snippets.sh
@@ -100,24 +110,30 @@ source ~/snippets.sh
 # Bash script
 source ~/git_log.sh
 
-[ -z "$PS1" ] || PS1="${GREEN}\h${LGRAY}:${LBLUE}\W${RED}\$(__git_ps1 '(%s)') ${GREEN}\u${NORM}\$ "
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
-# Terminal
-export CLICOLOR=1
-export LSCOLORS=GxFxCxDxBxegedabagaced
-export HISTCONTROL=ignoredups
+parse_git_branch() {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\ →\ \1/'
+}
 
-# Ruby Tuning
-export RUBY_GC_MALLOC_LIMIT=60000000
+function pr {
+  local dir="$PWD"
 
-# Ruby 2.1.0
-export RUBY_GC_HEAP_FREE_SLOTS=200000
-export RUBY_GC_HEAP_INIT_SLOTS=40000
+  until [[ -z "$dir" ]]; do
+    if [ -d ./.git ]; then
+      break
+    else
+      cd ..
+    fi
+    dir="${dir%/*}"
+  done
+}
 
-export CFLAGS="-march=core2 -O3 -pipe -fomit-frame-pointer"
-
-# Java HOME
-export JAVA_HOME="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home"
-export PATH=$JAVA_HOME/bin:$PATH
-
-export PATH=/usr/local/bin:$PATH
+export PS1='\u\[\e[1;37m\]@\[\e[1;31m\]\W\[\e[1;33m\]$(parse_git_branch)\[\e[0;39m\]> '
+export PROMPT_COMMAND='echo -ne "\033]0;${PWD}\007"'
+export EDITOR=sublime
+export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"
+export HISTFILESIZE=10000
+export HISTSIZE=10000
+shopt -s histappend
+export PROMPT_COMMAND='history -a'
